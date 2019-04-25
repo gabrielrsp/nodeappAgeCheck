@@ -12,7 +12,7 @@ nunjucks.configure('views', {
 
 const validaMiddleware = (req, res, next) => {
   const { age } = req.query
-  if (!age) {
+  if (!age || !parseInt(age)) {
     return res.redirect('/')
   }
   return next()
